@@ -1,23 +1,36 @@
+import { GetStaticProps } from 'next';
 import React from 'react';
+import { UserProps } from '@/interfaces';
+import UserCard from '../../components/common/UserCard';
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
-const UsersIndex: React.FC = () => {
-  const users = [
-    { id: 1, name: 'John Doe' },
-    { id: 2, name: 'Jane Doe' },
-  ];
+interface UsersIndexProps {
+  users: UserProps[];
+}
 
+const Users: React.FC<UsersIndexProps> = ({ users }) => {
   return (
-      <div>
-        <Header />
-        <h1>Users</h1>
-       <ul>
-         {users.map((user) => (
-          <li key={user.id}>{user.name}</li>
-        ))}
-       </ul>
+    <div>
+      <Header />
+      <h1>Users</h1>
+      {users.map((user) => (
+        <UserCard key={user.id} user={user} />
+      ))}
+      <Footer />
     </div>
   );
 };
 
-export default UsersIndex;
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const users: UserProps[] = await response.json();
+
+  return {
+    props: {
+      users,
+    },
+  };
+};
+
+export default Users;
