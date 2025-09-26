@@ -13,9 +13,8 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
       <p>Email: {user.email}</p>
       <p>Phone: {user.phone}</p>
       <p>Website: {user.website}</p>
-      <p>Address: {user.address.street}, {user.address.suite}, {user.address.city} {user.address.zipcode} {user.address.geo.lat}, {user.address.geo.lng }</p>
-      <p>Phone: {user.phone}</p>
-      <p>Company: {user.company.name} {user.company.catchPhrase} {user.company.bs}</p>
+      <p>Address: {user.address?.street}, {user.address?.suite}, {user.address?.city} {user.address?.zipcode} {user.address?.geo?.lat}, {user.address?.geo?.lng}</p>
+      <p>Company: {user.company?.name}</p>
     </div>
   );
 };
