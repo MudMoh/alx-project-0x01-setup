@@ -7,8 +7,8 @@ interface UserCardProps {
 
 const UserCard: React.FC<UserCardProps> = ({ user }) => {
   return (
-    <div>
-      <h2>{user.name}</h2>
+    <div className="border rounded-md p-4 m-2">
+      <h2 className="text-xl font-bold">{user.name}</h2>
       <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>
       <p>Phone: {user.phone}</p>
