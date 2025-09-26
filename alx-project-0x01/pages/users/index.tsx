@@ -28,9 +28,9 @@ export async function getStaticProps() {
 
   return {
     props: {
-      users,
+      users
     }
   }
 }
 
-export default Users;
+export default Users; 

@@ -1,20 +1,20 @@
 import React from 'react';
 import { UserProps } from '@/interfaces';
 
-// interface UserCardProps {
-//   user: UserProps;
-// }
+interface UserCardProps {
+  user: UserProps;
+}
 
-const UserCard: React.FC<UserProps> = ({ id, name, username, email, phone, website, address, company }) => {
+const UserCard: React.FC<UserCardProps> = ({ user }) => {
   return (
     <div>
-      <h2>{name} {id}</h2>
-      <p>Username: {username}</p>
-      <p>Email: {email}</p>
-      <p>Phone: {phone}</p>
-      <p>Website: {website}</p>
-      <p>Address: {address?.street}, {address?.suite}, {address?.city} {address?.zipcode} {address?.geo?.lat}, {address?.geo?.lng}</p>
-      <p>Company: {company?.name}</p>
+      <h2>{user.name}</h2>
+      <p>Username: {user.username}</p>
+      <p>Email: {user.email}</p>
+      <p>Phone: {user.phone}</p>
+      <p>Website: {user.website}</p>
+      <p>Address: {user.address?.street}, {user.address?.suite}, {user.address?.city} {user.address?.zipcode}</p>
+      <p>Company: {user.company?.name}</p>
     </div>
   );
 };
