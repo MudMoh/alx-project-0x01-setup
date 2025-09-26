@@ -22,15 +22,15 @@ const Users: React.FC<UsersIndexProps> = ({ users }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/users");
-  const users: UserProps[] = await response.json();
+export async function getStaticProps() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users")
+  const posts = await response.json()
 
   return {
     props: {
-      users,
-    },
-  };
-};
+      posts
+    }
+  }
+}
 
 export default Users;
