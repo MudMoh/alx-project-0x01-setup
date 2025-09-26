@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from "@/components/layout/Header";
 
 const UsersIndex: React.FC = () => {
   const users = [
@@ -7,13 +8,14 @@ const UsersIndex: React.FC = () => {
   ];
 
   return (
-    <div>
-      <h1>Users</h1>
-      <ul>
-        {users.map((user) => (
+      <div>
+        <Header />
+        <h1>Users</h1>
+       <ul>
+         {users.map((user) => (
           <li key={user.id}>{user.name}</li>
         ))}
-      </ul>
+       </ul>
     </div>
   );
 };

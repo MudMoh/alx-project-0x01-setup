@@ -1,5 +1,6 @@
 import React from 'react';
 import PostCard from '../../components/common/PostCard';
+import Header from "@/components/layout/Header";
 
 const PostsIndex: React.FC = () => {
   const posts = [
@@ -9,8 +10,9 @@ const PostsIndex: React.FC = () => {
 
   return (
     <div>
-      <h1>Posts</h1>
-      {posts.map((post) => (
+        <Header />
+        <h1>Posts</h1>
+        {posts.map((post) => (
         <PostCard key={post.id} title={post.title} content={post.content} />
       ))}
     </div>
